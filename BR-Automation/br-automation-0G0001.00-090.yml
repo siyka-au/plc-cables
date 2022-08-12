@@ -1,0 +1,40 @@
+# B&R Automation
+# 0G0001.00-090 - B&R online cable, RS232
+# MAPP01-E v2.3 - Power Panel 15/21/35/41 - User's Manual
+# Page 163
+# https://download.br-automation.com/BRP44400000000000000330652/MAPP01-E.pdf?px-hash=b81b01222d5796a3bcab751ea651b601&px-time=1660283983
+#
+# RS232 cable - B&R online cable
+# http://www.br-automation.com/downloads_br_productcatalogue/BRP44400000000000000113786/RS232_cable-ENG.pdf
+#
+
+connectors:
+  X1: &template_con
+    type: D-Sub9
+    subtype: female
+    pinlabels: [CTS, RXD, TXD, VDC, GND, NC, RTS, CTS, GND]
+  X2:
+    <<: *template_con
+
+cables:
+  W1:
+    wirecount: 7
+    length: 1
+    gauge: 0.25 mm2
+    show_equiv: true
+    color_code: DIN # auto-assign colors based on DIN 47100
+    shield: false
+
+connections:
+  -
+    - X1: [2,3,5,7,8]
+    - W1: [1-5]
+    - X2: [3,2,5,8,7]
+  -
+    - X1: 4
+    - W1: 6
+    - X1: 6
+  -
+    - X2: 4
+    - W1: 7
+    - X2: 6
