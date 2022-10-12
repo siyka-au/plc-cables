@@ -1,0 +1,34 @@
+# Leica Geosystems
+# GEV97 - 1,8m battery cable
+#
+
+connectors:
+  X1: &template_con
+    type: Lemo-FGG.1B.305-Leica
+    subtype: male
+    pinlabels: [Bat +12V GND Rx Tx]
+  X2:
+    <<: *template_con
+
+cables:
+  W1:
+    wirecount: 5
+    length: 1.8
+    gauge: 0.25 mm2
+    show_equiv: true
+    color_code: DIN # auto-assign colors based on DIN 47100
+    shield: true
+
+connections:
+  -
+    - X1: [2,3,5,7,8]
+    - W1: [1-5]
+    - X2: [3,2,5,8,7]
+  -
+    - X1: 4
+    - W1: 6
+    - X1: 6
+  -
+    - X2: 4
+    - W1: 7
+    - X2: 6
